@@ -9,7 +9,7 @@ export default function Layout({ token, onLogout }) {
                 <h1 className="text-black text-2xl"> NOTE</h1>
 
                 {isLoggedin ? (
-                    <span className="font-bold">Udah Login</span>
+                    <span className="font-bold">Sudah Login</span>
                 ) : (
                     <span className="font-bold">Belum Login</span>
                 ) }
@@ -17,8 +17,8 @@ export default function Layout({ token, onLogout }) {
                 
 
                 <nav className="flex font-bold ">
-                    {token !== null ? null : <Link to={"/Registrasi"}><span className="mx-4 hover:text-white">Registrasi</span></Link>}
-                    {token !== null ? null : <Link to={"/Login"}><span className="mx-4 hover:text-white">Login</span></Link>}
+                    {token !== null ? null : <Link to={"/Registrasi"}><span className="mx-4 hover:text-white font-bold">Registrasi</span></Link>}
+                    {token !== null ? null : <Link to={"/Login"}><span className="mx-4 hover:text-white font-bold">Login</span></Link>}
                     <Link to={"/note"}><span className="mx-4 hover:text-white">Notes</span></Link>
                     {token !== null ? <Link onClick={() => onLogout()}><span className="mx-4 hover:text-white">Logout</span></Link> : null}
                 </nav>

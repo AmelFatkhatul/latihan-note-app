@@ -10,7 +10,7 @@ function Login({onLogin}) {
     const [password,setPassword] = useState("");
 
     const handleClick = async () => { 
-        doLogin() 
+        doLogin(email, password) 
     //    const login = await handleLogin(email,password);
     //    if(login.status === 200){
     //         setEmail("")

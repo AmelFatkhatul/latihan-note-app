@@ -34,6 +34,7 @@ function App() {
                 <Route element={<Layout token={token} onLogout={handleLogout}/>}>
                     <Route path={"/Note"} element={<Note />} /> 
                     <Route path={"/Login"} element={<Login onLogin={handleLogin}/>} />
+                    <Route path={"/registrasi"} element={<Registrasi />}></Route>
                 </Route>
                 {/* {token !== null ? 
                     <Route>

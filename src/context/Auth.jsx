@@ -1,4 +1,5 @@
 import { createContext, useContext, useState } from "react"
+import { handleLogin } from "../Api"
 
 //nilai default
 const initialAuthState = {
@@ -21,8 +22,18 @@ const AuthProvider = ({ children }) => {
     const [isLoggedin, setIsLoggedin] = useState(false)
 
     // funcion
-    const doLogin = () => {
+    const doLogin = async (email, password) => {
+        //memanggil api dengan data email& password
+        console.log("akan memanggil login dengan:", email, password)
+        //memnaggil api menggunakan axios
+        const apiResult = await handleLogin(email, password)
+        console.log(apiResult)
+
+
+        //jika berhasil maka setIsLoggedin -> true
+        //simpan token ke dalam local storage
         setIsLoggedin(true)
+       console.log ("test kepanggil" , isLoggedin)
     }
 
     const doLogout = () => {
