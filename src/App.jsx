@@ -12,12 +12,12 @@ function App() {
     // panggil nilai isLoggedin dari context
     const { isLoggedin } = useAuth()
 
-    const [token,setToken] = useState(null);
+    const [token, setToken] = useState(null);
 
     const handleLogin = (tokens) => {
         setToken(tokens)
     }
-    
+
     const handleLogout = () => {
         setToken(null)
         localStorage.removeItem('token');
@@ -26,15 +26,25 @@ function App() {
     useEffect(() => {
         const tokens = getToken()
         setToken(tokens);
-    },[])
+    }, [])
 
     return (
         <BrowserRouter>
             <Routes>
-                <Route element={<Layout token={token} onLogout={handleLogout}/>}>
-                    <Route path={"/Note"} element={<Note />} /> 
-                    <Route path={"/Login"} element={<Login onLogin={handleLogin}/>} />
-                    <Route path={"/registrasi"} element={<Registrasi />}></Route>
+                <Route element={<Layout token={token} onLogout={handleLogout} />}>
+                    {isLoggedin ? (
+                        <Route path={"/Note"} element={<Note />} />,
+                        <Route path={"/Login"} element={<Navigate to={"/Note"} />} />
+
+                    ) : (
+                        <>
+                            <Route path={"/Login"} element={<Login onLogin={handleLogin} />} />
+                            <Route path={"/registrasi"} element={<Registrasi />} />
+                            <Route path={"/*"} element={<Navigate to="/Login"/>} />
+                        </>
+                    )}
+
+
                 </Route>
                 {/* {token !== null ? 
                     <Route>
@@ -55,10 +65,11 @@ function App() {
 
         </BrowserRouter>
 
+
     )
 }
 
-export default App
+export default App
 
 
 
@@ -97,14 +108,14 @@ export default App
 //         <BrowserRouter>
 //             <Routes>
 //                 <Route element={<Layout token={token} onLogout={handleLogout}/>}>
-//                 {token !== null ? 
+//                 {token !== null ?
 //                     <Route>
-//                         <Route path={"/Note"} element={<Note />} /> 
+//                         <Route path={"/Note"} element={<Note />} />
 //                         <Route path="*" element={<Navigate to={"/Note"}/>}/>
 //                     </Route>
 //                 : <Route path={"/Note"} element={<h1 className="text-black grid place-items-center mt-[16rem] font-bold text-[4rem]">Not Found</h1>} />}
 //                 {
-//                     token !== null ? null : 
+//                     token !== null ? null :
 //                    <Route>
 //                      <Route path={"/Registrasi"} element={<Registrasi />} />
 //                      <Route path={"/Login"} element={<Login onLogin={handleLogin}/>} />
