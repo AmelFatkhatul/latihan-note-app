@@ -4,6 +4,8 @@ import { nanoid } from 'nanoid'
 import FormTambah from './FormTambah'
 import FormEdit from './FormEdit'
 import axios from 'axios'
+import { addNote, deleteNote, editNote, tampilkan } from './Api'
+
 
 
 function Note() {
@@ -12,7 +14,7 @@ function Note() {
 
   const handleFetchData = async () => {
     const apiFetch = await tampilkan();
-    setNotes(apiFetch.data.data ?? null)
+    setNotes(apiFetch.data.data.notes ?? null)
   }
 
   const handleAddData = async (title, content) => {
@@ -48,7 +50,7 @@ function Note() {
     <>
       <div className='mx'>
         <div className="App w-[100%] flex flex-col items-center">
-          <h1 className='text-center text-4xl p-5 text-white' >Notes</h1>
+          <h1 className='text-center text-4xl p-5 text-black' >Notes</h1>
           {currentNoteId ? <FormEdit onEdit={handleUpdate} targetValue={notes !== null ? notes.filter(e => e.id === currentNoteId)[0] : null} notes={notes} onCancel={cancelEdit} /> : <FormTambah onAdd={handleAddData} onCancel={cancelEdit} />}
 
           <div className='flex flex-row flex-wrap justify-center'>
