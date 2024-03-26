@@ -1,8 +1,11 @@
-import { Link, Outlet } from "react-router-dom"
-import { useAuth } from "./context/Auth"
+import { Link, Outlet } from "react-router-dom";
+import { useAuth } from "../modules/Auth/Auth";
+
 
 export default function Layout() {
-    const { isLoggedin, doLogout } = useAuth()
+    const { isLoggedin } = useAuth()
+    const { doLogout } = useAuth()
+
     return (
         <>
             <div className="bg-blue-200 h-[55px] justify-around py-3 flex gap-2 ">

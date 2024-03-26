@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { Register,setTokens } from "../Api";
+import { Register, setTokens } from "../config/Api";
+// import { Register, setTokens } from "../Api";
 
 function Registrasi() {
 
@@ -39,40 +40,3 @@ function Registrasi() {
 }
 
 export default Registrasi;
-
-
-// function Registrasi({ }) {
-//     return (
-//         <div className="container">
-//             <div className="text-center m-10 font-bold text-3xl">Registrasi</div>
-
-//             <div className='flex flex-col m-10'>
-//                 <input
-//                     type="text"
-//                     placeholder='Nama'
-//                     name='Nama'
-//                     className="input"
-//                 />
-//                 <input
-//                     type="email"
-//                     placeholder='Email'
-//                     name='Email'
-//                     className="input"
-//                 />
-//                 <input
-//                     type="password"
-//                     placeholder='Password'
-//                     name='Password'
-//                     className="input"
-//                 />
-
-
-
-
-//                 <button onClick={() => handleSubmit()} className="bg-blue-400 text-black text-lg rounded-lg px-5 py-3 mt-4" >Login</button>
-//             </div>
-//         </div>
-
-//     )
-// }
-// export default Registrasi;
