@@ -1,18 +1,32 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { addNote, deleteNote, editNote, tampilkan } from "../config/Api";
 
-// nilai default 
 const iniNoteContext = {
-  notes: [],
-  currentNoteId: null,
-  handleFetchData: () => {},
-  handleAddData: () => {},
-  handleUpdate: () => {},
-  handleDelete: () => {},
-  fetchData: () => {},
-  cancelEdit: () => {},
-  Edit: () => {}
+    notes: [],
+    currentNoteId: null,
+    handleFetchData: () => {},
+    handleAddData: () => {},
+    handleUpdate: () => {},
+    handleDelete: () => {},
+    fetchData: () => {},
+    cancelEdit: () => {},
+    Edit: () => {}
 }
+
+const NoteContext = createContext(iniNoteContext)
+
+// const NoteProvider = ({}) => {
+//     const [notes, setNotes] = useState([])
+//     const [currentNoteId, setCurrentNoteId] = useState(null)
+
+// }
+
+// const handleFechData = () => {}
+
+// const handleAddData = async (title, content) => {
+//     await addNote(title, content)import React, { createContext, useContext } from 'react';
+
+// Buat konteks
 
 // Buat custom hook untuk menggunakan konteks
 export const useNoteContext = () => useContext(NoteContext);
@@ -55,7 +69,7 @@ export const NoteProvider = ({ children }) => {
   }, []);
 
   return (
-    <NoteContext.Providerz
+    <NoteContext.Provider
       value={{
         notes,
         currentNoteId,

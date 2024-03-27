@@ -69,70 +69,68 @@ return(
 export {AuthProvider, useAuth}
 
 
+
+
 // import { createContext, useContext, useEffect, useState } from "react"
 // import { getToken, handleLogin, removeToken, setTokens } from "../config/Api"
 
-
-// //nilai default
-// const initialAuthState = {
+// // nilai default 
+// const initAuthContextPropsState = {
 //     isLoggedin: false,
-//     doLogin: () => { },
-//     doLogout: () => { }
+//     doLogin: () => {},
+//     doLogout: () => {}
 // }
 
-// //buat context
-// const AuthContext = createContext(initialAuthState)
+// // buat context 
+// const AuthContext = createContext(initAuthContextPropsState)
 
-// //buat custom hook
+// // buat custom hook 
 // const useAuth = () => {
 //     return useContext(AuthContext)
 // }
 
-// //buat provider
-// const AuthProvider = ({ children }) => {
-//     //state
-//     const [isLoggedin, setIsLoggedin] = useState(false)
+// // buat provider
+// const AuthProvider = ({children}) => {
 
-//     useEffect(() => {
-//         const token = getToken()
-//         if (token != null){
-//             setIsLoggedin(true)
-//         }
-//     }, [])
+// // state 
+// const [isLoggedin, setIsiLoggedin] = useState(false)
 
-//     //function
-//     const doLogin = async (email, password) => {
-//         //memanggil api dengan data email dan password
-//         console.log("akan melakukan login dengan :", email, password)
-//         //memanggil api menggunakan axios
-//         const apiResult = await handleLogin(email, password)
-//         console.log(apiResult)
-//         console.log(apiResult.data.data.accessToken)
-
-
-//         //jika berhasil maka setIsLoggedin -> true
-//         //simpan token ke dalam local storage
-//         setIsLoggedin(true)
-//         setTokens(apiResult.data.data.accessToken)
-
+// useEffect(() => {
+//     const token = getToken()
+//     if (token != null) {
+//         setIsiLoggedin(true)
 //     }
+// }, [])
+// // function 
+// const doLogin = async (email, password) => {
+//     // memanggil api dengan data email dan password 
+//     console.log("akan melakukan login dengan", email, password)
 
-//     const doLogout = () => {
-//         setIsLoggedin(false)
-//         removeToken()
-       
-//     }
+//     // memanggil api dengan axios 
+//     const apiResult = await handleLogin(email, password) 
+//     console.log(apiResult)
+//     console.log(apiResult.data.data.accessToken)
 
-//     //return provider
-//     return (
-//         <AuthContext.Provider value={{ isLoggedin, doLogin, doLogout }}>
-//             {children}
-//         </AuthContext.Provider>
-//     )
+
+//     // jika berhasil maka setIsLoggedin --> true
+//     // simpan token ke dalam localstorage
+//     setIsiLoggedin(true)
+//     setTokens(apiResult.data.data.accessToken)
+
 // }
 
+// const doLogout = () => {
+//     setIsiLoggedin(false)
+//     removeToken()
+// }
+// // return provider 
+// return(
+//     <AuthContext.Provider value={{isLoggedin, doLogin, doLogout}}>
+//         {children}
 
-// //export provider & hook
-// export { AuthProvider, useAuth }
+//     </AuthContext.Provider>
+// )
+// }
 
-
+// // export provider & hook 
+// export {AuthProvider, useAuth}

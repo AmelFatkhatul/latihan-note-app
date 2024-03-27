@@ -7,7 +7,7 @@ function FormEdit({ onCancel, targetValue }) {
     const [title, setTitle] = useState(targetValue ? targetValue.title : '');
     const [note, setNotes] = useState(targetValue ? targetValue.content : '');
     const [writer, setWriter] = useState(targetValue ? targetValue.writer : '');
-
+  
     const handleEdit = () => {
         const konfirm = window.confirm('Apakah Anda Yakin ?');
         if (konfirm) {

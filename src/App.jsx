@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react"
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom"
 import Layout from "./Layouts/Layout"
-import Note from "./modules/note/Note"
-import Login from "./modules/auth/Login"
-import Registrasi from "./modules/auth/Registrasi"
+import Note from "./modules/notes/Note"
+import Login from "./modules/Auth/Login"
+import Registrasi from "./modules/Auth/Registrasi"
 import { getToken } from "./modules/config/Api"
-import { NoteProvider } from "./modules/note/NoteContext"
+import { NoteProvider } from "./modules/notes/NoteContext"
 import { useAuth } from "./modules/Auth/Auth"
 
 function App() {
